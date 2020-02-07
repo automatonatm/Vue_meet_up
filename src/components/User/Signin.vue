@@ -93,7 +93,6 @@
         methods: {
             onSignin() {
                 //VueX
-
                 this.$store.dispatch('signUserIn', {email: this.email, password: this.password})
             },
             onDismissed() {

@@ -9,8 +9,16 @@ import DateFilter from "./filters/date"
 
 
 import Alert from './components/shared/Alert'
+import Edit from './components/Meetup/Edit/EditMeetupDialogue'
+import EditDate from './components/Meetup/Edit/EditDateDialogue'
+import EditTime from './components/Meetup/Edit/EditTimeDialogue'
+import Register from './components/Meetup/RegisterDialog'
 
 Vue.component('Alert', Alert)
+Vue.component('Edit', Edit)
+Vue.component('Date', EditDate)
+Vue.component('Time', EditTime)
+Vue.component('Register', Register)
 
 Vue.config.productionTip = false
 Vue.filter('date', DateFilter)
@@ -35,6 +43,8 @@ new Vue({
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.$store.dispatch('autoSignIn', user)
+          this.$store.dispatch('fetchUserData')
+
       }
     })
 
